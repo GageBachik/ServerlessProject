@@ -10,13 +10,6 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import CodePush from 'react-native-code-push';
 
-codePushSync() {
-  CodePush.sync({
-    updateDialog: true,
-    installMode: CodePush.installMode.IMMEDIATE
-  });
-}
-
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android:
@@ -26,6 +19,12 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class App extends Component<Props> {
+  codePushSync() {
+    CodePush.sync({
+      updateDialog: true,
+      installMode: CodePush.installMode.IMMEDIATE
+    });
+  }
   render() {
     return (
       <View style={styles.container}>
